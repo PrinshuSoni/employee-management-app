@@ -15,7 +15,12 @@ import {
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const EmployeeForm = ({ employee = {}, addEmployee, updateEmployee }) => {
+const EmployeeForm = ({
+  employee = {},
+  addEmployee,
+  updateEmployee,
+  onResetClick,
+}) => {
   const formik = useFormik({
     initialValues: {
       name: employee.name || "",
@@ -170,9 +175,18 @@ const EmployeeForm = ({ employee = {}, addEmployee, updateEmployee }) => {
         helperText={formik.touched.contactNo && formik.errors.contactNo}
         sx={{ marginBottom: 2 }}
       />
-
+      <Button
+        variant="outlined"
+        sx={{ mr: 2 }}
+        onClick={() => {
+          formik.resetForm();
+          onResetClick({});
+        }}
+      >
+        Reset
+      </Button>
       <Button type="submit" variant="contained">
-        {employee.id ? 'Update' : 'Add'}
+        {employee.id ? "Update" : "Add"}
       </Button>
     </form>
   );

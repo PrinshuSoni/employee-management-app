@@ -74,7 +74,16 @@ const Employee = () => {
             {error}
           </Typography>
         )}
-        <EmployeeForm key={`${employees.length}-${selectedEmployeeData.id}`} addEmployee={addEmployee} updateEmployee={updateEmployee} employee={selectedEmployeeData} />
+        <EmployeeForm
+          key={`${employees.length}-${selectedEmployeeData.id}`}
+          addEmployee={addEmployee}
+          updateEmployee={updateEmployee}
+          onResetClick={() => {
+            setSelectedEmployeeData({});
+            setError(null);
+          }}
+          employee={selectedEmployeeData}
+        />
       </div>
       <Divider sx={{ my: 4 }} />
       {/* Employee Table */}

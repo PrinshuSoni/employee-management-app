@@ -66,6 +66,7 @@ The application will be accessible at http://localhost:3000.
 
 - `GET /api/employees`: Get all employees
 - `POST /api/employees`: Add a new employee
+- `PUT /api/employees/:id`: Update an existing employee by ID
 - `DELETE /api/employees/:id`: Delete an employee by ID
 
 ## Contributing
